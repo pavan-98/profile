@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        http-equiv="X-UA-Compatible"
+        content="IE=edge"
+    >
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Document</title>
+    <script>
+        fetch('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fnews.google.com%2Frss%2Fsearch%3Fq%3Dvisakhapatnam')
+            .then(response => response.json())
+            .then(data => {
+                let allnews = "";
+                for (let i = 0; i < 10; i++) {
+                    console.log(i)
+                    allnews += data.items[i].title + " ⚈ ";
+
+                }
+                document.getElementById("yoyo").innerHTML = allnews;
+            });
+    </script>
+
+</head>
+
+<body>
+
+    <script>
+        fetch('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fnews.google.com%2Frss%2Fsearch%3Fq%3Dvisakhapatnam')
+            .then(response => response.json())
+            .then(data => {
+                let allnews = "";
+                for (let i = 0; i < 10; i++) {
+                    console.log(i)
+                    allnews += data.items[i].title + " ⚈ ";
+
+                }
+                document.getElementById("yoyo").innerHTML = allnews;
+            });
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
+        rel="stylesheet"
+    >
+    <marquee
+        id="yoyo"
+        style="font-weight: bold;font-family: 'Ubuntu', sans-serif; font-size: 20px;color:#444444; white-space:nowrap;"
+        direction="left"
+    >
+    </marquee>
+
+
+
+    <!-- 
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+<marquee style="font-weight: bold;font-family: 'Ubuntu', sans-serif; font-size: 20px;color:#444444;" direction="left" >
+⚈ 1 Lakh 30,000+ Coronavirus Cases Registered in Visakhapatnam.  ⚈ 59 Chinese Apps Including Tik Tok and Other Major Apps Banned in India Over Privacy Concerns. ⚈ Parawada Gas Leak Has taken 2 Workers Lives as well as Injured around another 2.  ⚈ More than 700 People Arrested for Violating Lockdown Terms in Vizag. ⚈ Face Mask have been Made mandatory in Vizag, Defaulters will have to pay a Fine of 100/-  ⚈ Stay Safe Everyone.
+</marquee> -->
+
+    <form id="myForm">
+        <input name="searchTerm" />
+        <button>Submit</button>
+    </form>
+
+    <script>
+        document.querySelector('#myForm').addEventListener('submit', function () {
+            console.log(this.elements.searchTerm.value);
+
+
+
+            url = `https://www.rssdog.com/index.php?url=https%3A%2F%2Fnews.google.com%2Frss%2Fsearch%3Fq%3D${this.elements.searchTerm.value}%26hl%3Den-IN%26gl%3DIN%26ceid%3DIN%3Aen&amp;mode=javascript&amp;showonly=&amp;maxitems=0&amp;showdescs=1&amp;desctrim=0&amp;descmax=0&amp;tabwidth=100%25&amp;excltitle=1&amp;showdate=1&amp;linktarget=_blank&amp;bordercol=%23d4d0c8&amp;headbgcol=%23999999&amp;headtxtcol=%23ffffff&amp;titlebgcol=%23f1eded&amp;titletxtcol=%23000000&amp;itembgcol=%23ffffff&amp;itemtxtcol=%23000000&amp;ctl=0`;
+        });
+
+        src = url;
+    </script>
+
+
+
+
+
+</body>
+
+</html>
